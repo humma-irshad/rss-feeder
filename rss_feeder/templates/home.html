@@ -1,0 +1,18 @@
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> 
+    <title>RSS Feeder</title>
+    <span style = 'display: inline-block'>RealNews 
+        <small id = 'smol'>Real News In Real Time</small>
+    </span>
+    
+    {% for post in posts %}
+        <div>
+            <h3> {{ post.title }} </h3>
+            <h4> {{ post.summary }} </h4>
+            <p> {{ post.content }} </p>
+            <small id = 'pad'>Here's the link to original page: <br>
+                <a href = '{{ post.link }}' target = '_blank'> {{ post.link }} </a>
+            </small>
+        </div>
+    {% endfor %}
+{% endblock content %}  
